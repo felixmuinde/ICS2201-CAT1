@@ -1,6 +1,7 @@
 package com.mycompany.mavenproject1;
 import static java.lang.System.out;
 
+
 /**
  *
  * @author Felix Muinde
@@ -25,5 +26,8 @@ public class Mavenproject1 {
         
         //Finding the Estimated Monthly Payments
         out.println("Estimated Monthly Installments: " + mySecondLoad.monthlyPayment());
+        
+        //Finding the Total Payment Amount
+        out.println("Total Payment: " + mySecondLoad.totalPayment());
     }
 }

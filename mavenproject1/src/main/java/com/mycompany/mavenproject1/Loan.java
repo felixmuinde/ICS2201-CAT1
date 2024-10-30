@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject1;
 import static java.lang.System.out;
+import java.time.LocalDate;
 
 /**
  *
@@ -11,10 +12,10 @@ public class Loan {
     private double annualInterestRate = 2.5;
     private double loanAmount = 1000;
     private int numberOfYears = 1;
+    //Obviously the date of the loan is te day it is created.
+    private LocalDate loanDate = LocalDate.now();
     
-//    private Date loanDate;
-    
-    //Class functions
+    //Class Constructors
     public Loan(){};
     public Loan(double annualInterestRate, int numberOfYears, double loanAmount){
         this.annualInterestRate = annualInterestRate;
@@ -26,7 +27,7 @@ public class Loan {
     public double getAnnualInterestRate(){return this.annualInterestRate;}
     public int getNumberOfYears(){return this.numberOfYears;}
     public double getLoanAmount(){return this.loanAmount;}
-//    pub;ic Date getLoanDate();
+    public LocalDate getLoanDate(){return this.loanDate;}
     
     //Setters
     public void setAnnualInterestRate(double AIR){
@@ -64,11 +65,11 @@ public class Loan {
         double expoRatePlusOne = Math.pow(ratePlusOne, months);
         installment = principle * (rate * (expoRatePlusOne)) / ((expoRatePlusOne - 1));
         
-        return installment;
+        return Math.round(installment * 100.0)/100.0;
     }
     
     public double totalPayment(){
-        return monthlyPayment() * numberOfYears * 12;
+        return Math.round(monthlyPayment() * numberOfYears * 12 * 100.0)/100.0;
     }
         
     
