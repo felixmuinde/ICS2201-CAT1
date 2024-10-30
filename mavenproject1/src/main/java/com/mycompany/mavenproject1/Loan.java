@@ -16,7 +16,11 @@ public class Loan {
     
     //Class functions
     public Loan(){};
-    public Loan(double annualInterestRate, int numberOfYears, double loanAmount){};
+    public Loan(double annualInterestRate, int numberOfYears, double loanAmount){
+        this.annualInterestRate = annualInterestRate;
+        this.numberOfYears = numberOfYears;
+        this.loanAmount = loanAmount;
+    };
     
     //Getters
     public double getAnnualInterestRate(){return this.annualInterestRate;}
@@ -62,6 +66,10 @@ public class Loan {
         out.println("Monthly Installments:" + installment);
         
         return installment;
+    }
+    
+    public double totalPayment(){
+        return monthlyPayment() * numberOfYears * 12;
     }
         
     
