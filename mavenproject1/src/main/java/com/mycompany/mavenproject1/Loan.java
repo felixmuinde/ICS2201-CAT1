@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mavenproject1;
 
 /**
  *
- * @author Administrator
+ * @author Felix Muinde
  */
 public class Loan {
     
@@ -15,17 +11,23 @@ public class Loan {
     private double loanAmount;
     private int numberOfYears;
     
-    private Date loanDate;
+//    private Date loanDate;
     
     //Class functions
     public Loan(){};
     public Loan(double annualInterestRate, int numberOfYears, double loanAmount){};
     
     //Getters
-    public double getAnnualInterestRate(){return annualInterestRate;}
-    public int getNumberOfYears(){return numberOfYears;}
-    public double getLoanAmount(){return loanAmount;}
+    public double getAnnualInterestRate(){return this.annualInterestRate;}
+    public int getNumberOfYears(){return this.numberOfYears;}
+    public double getLoanAmount(){return this.loanAmount;}
+//    pub;ic Date getLoanDate();
     
+    //Setters
+    public void setAnnualInterestRate(double annualInterestRate){
+        this.annualInterestRate = annualInterestRate;
+    }
+    public void
         
     
 }
