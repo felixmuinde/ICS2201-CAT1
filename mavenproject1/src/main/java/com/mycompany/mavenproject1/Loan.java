@@ -56,14 +56,13 @@ public class Loan {
     }
     
     public double monthlyPayment(){
-        double installment,rate,principle = 0;
+        double installment,rate,principle;
         principle = this.loanAmount;
-        rate = annualInterestRate / 12;
+        rate = (annualInterestRate/100) / 12;
         int months = numberOfYears * 12;
         double ratePlusOne = rate + 1;
         double expoRatePlusOne = Math.pow(ratePlusOne, months);
-        installment = principle * (rate * (expoRatePlusOne) / (expoRatePlusOne - 1));
-        out.println("Monthly Installments:" + installment);
+        installment = principle * (rate * (expoRatePlusOne)) / ((expoRatePlusOne - 1));
         
         return installment;
     }
