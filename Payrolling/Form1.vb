@@ -13,7 +13,7 @@ Public Class frmPayroll
         Using connection As New OleDbConnection(connectionString)
             Try
                 connection.Open()
-                Dim query As String = "SELECT TOP 1 EmployeeID FROM Employees ORDER BY EmployeeID"
+                Dim query As String = "SELECT TOP 1 * FROM Employees ORDER BY EmployeeID"
                 Dim command As New OleDbCommand(query, connection)
 
                 Using reader As OleDbDataReader = command.ExecuteReader()
