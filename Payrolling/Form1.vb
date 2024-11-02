@@ -13,12 +13,17 @@ Public Class frmPayroll
         Using connection As New OleDbConnection(connectionString)
             Try
                 connection.Open()
-                Dim query As String = "SELECT TOP 1 * FROM Employees ORDER BY EmployeeID"
+                Dim query As String = "SELECT TOP 1 * FROM Employees WHERE [Active] = True ORDER BY EmployeeID"
                 Dim command As New OleDbCommand(query, connection)
 
                 Using reader As OleDbDataReader = command.ExecuteReader()
                     If reader.Read() Then
                         IDLabelText.Text = reader("EmployeeID").ToString()
+                        lblFirstName.Text = reader("FirstName").ToString()
+                        lblSecondName.Text = reader("LastName").ToString()
+                        lblDepartment.Text = reader("Department").ToString()
+                        lblPosition.Text = reader("Position").ToString()
+                        lblRate.Text = Convert.ToDecimal(reader("HourlyRate")).ToString("C")
                     Else
                         MessageBox.Show("No records in Emplyees table.")
                     End If

@@ -25,32 +25,36 @@ Partial Class frmPayroll
         btnPrint = New MaterialSkin.Controls.MaterialButton()
         lblID = New MaterialSkin.Controls.MaterialLabel()
         lblName = New MaterialSkin.Controls.MaterialLabel()
-        lblDepartment = New MaterialSkin.Controls.MaterialLabel()
-        lblHourlyRate = New MaterialSkin.Controls.MaterialLabel()
+        DepartmentLabel = New MaterialSkin.Controls.MaterialLabel()
+        HourlyRateLabel = New MaterialSkin.Controls.MaterialLabel()
         lblStartPeriod = New MaterialSkin.Controls.MaterialLabel()
         lblEndDate = New MaterialSkin.Controls.MaterialLabel()
         lblTotalDue = New MaterialSkin.Controls.MaterialLabel()
         lblTaxDue = New MaterialSkin.Controls.MaterialLabel()
         lblAccountNumber = New MaterialSkin.Controls.MaterialLabel()
         lblBankName = New MaterialSkin.Controls.MaterialLabel()
-        btnPay = New MaterialSkin.Controls.MaterialButton()
+        btnClear = New MaterialSkin.Controls.MaterialButton()
         IDLabelText = New Label()
-        NameLabelText = New Label()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label5 = New Label()
-        Label6 = New Label()
-        Label7 = New Label()
-        Label8 = New Label()
+        lblFirstName = New Label()
+        lblDepartment = New Label()
+        lblRate = New Label()
+        lblTax = New Label()
+        lblGross = New Label()
+        lblBank = New Label()
+        lblAccNo = New Label()
         DateTimePicker1 = New DateTimePicker()
         DateTimePicker2 = New DateTimePicker()
-        MaterialButton1 = New MaterialSkin.Controls.MaterialButton()
-        MaterialButton2 = New MaterialSkin.Controls.MaterialButton()
-        MaterialButton3 = New MaterialSkin.Controls.MaterialButton()
-        Label3 = New Label()
+        btnPlay = New MaterialSkin.Controls.MaterialButton()
+        btnPreviousRecord = New MaterialSkin.Controls.MaterialButton()
+        btnNextRecord = New MaterialSkin.Controls.MaterialButton()
+        lblSecondName = New Label()
         MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        Label4 = New Label()
+        lblPosition = New Label()
         MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
+        btnSearch = New MaterialSkin.Controls.MaterialButton()
+        TextBox1 = New TextBox()
+        lblPayDate = New Label()
+        PayDate = New MaterialSkin.Controls.MaterialLabel()
         SuspendLayout()
         ' 
         ' btnPrint
@@ -60,7 +64,7 @@ Partial Class frmPayroll
         btnPrint.Depth = 0
         btnPrint.HighEmphasis = True
         btnPrint.Icon = Nothing
-        btnPrint.Location = New Point(384, 480)
+        btnPrint.Location = New Point(305, 540)
         btnPrint.Margin = New Padding(4, 6, 4, 6)
         btnPrint.MouseState = MaterialSkin.MouseState.HOVER
         btnPrint.Name = "btnPrint"
@@ -89,51 +93,51 @@ Partial Class frmPayroll
         ' 
         lblName.AutoSize = True
         lblName.Depth = 0
-        lblName.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblName.Location = New Point(16, 103)
+        lblName.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblName.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblName.Location = New Point(18, 106)
         lblName.MouseState = MaterialSkin.MouseState.HOVER
         lblName.Name = "lblName"
-        lblName.Size = New Size(99, 24)
+        lblName.Size = New Size(71, 17)
         lblName.TabIndex = 2
         lblName.Text = "First Name"
         ' 
-        ' lblDepartment
+        ' DepartmentLabel
         ' 
-        lblDepartment.AutoSize = True
-        lblDepartment.Depth = 0
-        lblDepartment.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblDepartment.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblDepartment.Location = New Point(16, 159)
-        lblDepartment.MouseState = MaterialSkin.MouseState.HOVER
-        lblDepartment.Name = "lblDepartment"
-        lblDepartment.Size = New Size(107, 24)
-        lblDepartment.TabIndex = 3
-        lblDepartment.Text = "Department"
+        DepartmentLabel.AutoSize = True
+        DepartmentLabel.Depth = 0
+        DepartmentLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        DepartmentLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        DepartmentLabel.Location = New Point(18, 162)
+        DepartmentLabel.MouseState = MaterialSkin.MouseState.HOVER
+        DepartmentLabel.Name = "DepartmentLabel"
+        DepartmentLabel.Size = New Size(77, 17)
+        DepartmentLabel.TabIndex = 3
+        DepartmentLabel.Text = "Department"
         ' 
-        ' lblHourlyRate
+        ' HourlyRateLabel
         ' 
-        lblHourlyRate.AutoSize = True
-        lblHourlyRate.Depth = 0
-        lblHourlyRate.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblHourlyRate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblHourlyRate.Location = New Point(18, 210)
-        lblHourlyRate.MouseState = MaterialSkin.MouseState.HOVER
-        lblHourlyRate.Name = "lblHourlyRate"
-        lblHourlyRate.Size = New Size(105, 24)
-        lblHourlyRate.TabIndex = 4
-        lblHourlyRate.Text = "Hourly Rate"
+        HourlyRateLabel.AutoSize = True
+        HourlyRateLabel.Depth = 0
+        HourlyRateLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        HourlyRateLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        HourlyRateLabel.Location = New Point(20, 213)
+        HourlyRateLabel.MouseState = MaterialSkin.MouseState.HOVER
+        HourlyRateLabel.Name = "HourlyRateLabel"
+        HourlyRateLabel.Size = New Size(76, 17)
+        HourlyRateLabel.TabIndex = 4
+        HourlyRateLabel.Text = "Hourly Rate"
         ' 
         ' lblStartPeriod
         ' 
         lblStartPeriod.AutoSize = True
         lblStartPeriod.Depth = 0
-        lblStartPeriod.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblStartPeriod.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblStartPeriod.Location = New Point(15, 269)
+        lblStartPeriod.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblStartPeriod.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblStartPeriod.Location = New Point(17, 272)
         lblStartPeriod.MouseState = MaterialSkin.MouseState.HOVER
         lblStartPeriod.Name = "lblStartPeriod"
-        lblStartPeriod.Size = New Size(92, 24)
+        lblStartPeriod.Size = New Size(65, 17)
         lblStartPeriod.TabIndex = 5
         lblStartPeriod.Text = "Start Date"
         ' 
@@ -141,12 +145,12 @@ Partial Class frmPayroll
         ' 
         lblEndDate.AutoSize = True
         lblEndDate.Depth = 0
-        lblEndDate.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblEndDate.Location = New Point(298, 269)
+        lblEndDate.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblEndDate.Location = New Point(300, 272)
         lblEndDate.MouseState = MaterialSkin.MouseState.HOVER
         lblEndDate.Name = "lblEndDate"
-        lblEndDate.Size = New Size(81, 24)
+        lblEndDate.Size = New Size(58, 17)
         lblEndDate.TabIndex = 6
         lblEndDate.Text = "End Date"
         ' 
@@ -154,12 +158,12 @@ Partial Class frmPayroll
         ' 
         lblTotalDue.AutoSize = True
         lblTotalDue.Depth = 0
-        lblTotalDue.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblTotalDue.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblTotalDue.Location = New Point(15, 320)
+        lblTotalDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblTotalDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblTotalDue.Location = New Point(17, 395)
         lblTotalDue.MouseState = MaterialSkin.MouseState.HOVER
         lblTotalDue.Name = "lblTotalDue"
-        lblTotalDue.Size = New Size(104, 24)
+        lblTotalDue.Size = New Size(75, 17)
         lblTotalDue.TabIndex = 7
         lblTotalDue.Text = "Gross Total"
         ' 
@@ -167,12 +171,12 @@ Partial Class frmPayroll
         ' 
         lblTaxDue.AutoSize = True
         lblTaxDue.Depth = 0
-        lblTaxDue.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblTaxDue.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblTaxDue.Location = New Point(298, 320)
+        lblTaxDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblTaxDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblTaxDue.Location = New Point(300, 395)
         lblTaxDue.MouseState = MaterialSkin.MouseState.HOVER
         lblTaxDue.Name = "lblTaxDue"
-        lblTaxDue.Size = New Size(74, 24)
+        lblTaxDue.Size = New Size(53, 17)
         lblTaxDue.TabIndex = 8
         lblTaxDue.Text = "Tax Due"
         ' 
@@ -180,12 +184,12 @@ Partial Class frmPayroll
         ' 
         lblAccountNumber.AutoSize = True
         lblAccountNumber.Depth = 0
-        lblAccountNumber.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblAccountNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblAccountNumber.Location = New Point(298, 371)
+        lblAccountNumber.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblAccountNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblAccountNumber.Location = New Point(300, 446)
         lblAccountNumber.MouseState = MaterialSkin.MouseState.HOVER
         lblAccountNumber.Name = "lblAccountNumber"
-        lblAccountNumber.Size = New Size(150, 24)
+        lblAccountNumber.Size = New Size(107, 17)
         lblAccountNumber.TabIndex = 9
         lblAccountNumber.Text = "Account Number"
         ' 
@@ -193,33 +197,33 @@ Partial Class frmPayroll
         ' 
         lblBankName.AutoSize = True
         lblBankName.Depth = 0
-        lblBankName.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblBankName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        lblBankName.Location = New Point(15, 371)
+        lblBankName.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        lblBankName.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        lblBankName.Location = New Point(17, 446)
         lblBankName.MouseState = MaterialSkin.MouseState.HOVER
         lblBankName.Name = "lblBankName"
-        lblBankName.Size = New Size(104, 24)
+        lblBankName.Size = New Size(74, 17)
         lblBankName.TabIndex = 10
         lblBankName.Text = "Bank Name"
         ' 
-        ' btnPay
+        ' btnClear
         ' 
-        btnPay.AutoSizeMode = AutoSizeMode.GrowAndShrink
-        btnPay.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
-        btnPay.Depth = 0
-        btnPay.HighEmphasis = True
-        btnPay.Icon = Nothing
-        btnPay.Location = New Point(82, 480)
-        btnPay.Margin = New Padding(4, 6, 4, 6)
-        btnPay.MouseState = MaterialSkin.MouseState.HOVER
-        btnPay.Name = "btnPay"
-        btnPay.NoAccentTextColor = Color.Empty
-        btnPay.Size = New Size(64, 36)
-        btnPay.TabIndex = 11
-        btnPay.Text = "Clear"
-        btnPay.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        btnPay.UseAccentColor = False
-        btnPay.UseVisualStyleBackColor = True
+        btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnClear.Depth = 0
+        btnClear.HighEmphasis = True
+        btnClear.Icon = Nothing
+        btnClear.Location = New Point(173, 540)
+        btnClear.Margin = New Padding(4, 6, 4, 6)
+        btnClear.MouseState = MaterialSkin.MouseState.HOVER
+        btnClear.Name = "btnClear"
+        btnClear.NoAccentTextColor = Color.Empty
+        btnClear.Size = New Size(66, 36)
+        btnClear.TabIndex = 11
+        btnClear.Text = "Clear"
+        btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnClear.UseAccentColor = False
+        btnClear.UseVisualStyleBackColor = True
         ' 
         ' IDLabelText
         ' 
@@ -232,238 +236,294 @@ Partial Class frmPayroll
         IDLabelText.TabIndex = 13
         IDLabelText.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' NameLabelText
+        ' lblFirstName
         ' 
-        NameLabelText.BackColor = SystemColors.HighlightText
-        NameLabelText.BorderStyle = BorderStyle.FixedSingle
-        NameLabelText.Location = New Point(16, 129)
-        NameLabelText.Margin = New Padding(3, 2, 3, 2)
-        NameLabelText.Name = "NameLabelText"
-        NameLabelText.Size = New Size(215, 23)
-        NameLabelText.TabIndex = 14
-        NameLabelText.TextAlign = ContentAlignment.MiddleLeft
+        lblFirstName.BackColor = SystemColors.HighlightText
+        lblFirstName.BorderStyle = BorderStyle.FixedSingle
+        lblFirstName.Location = New Point(18, 132)
+        lblFirstName.Margin = New Padding(3, 2, 3, 2)
+        lblFirstName.Name = "lblFirstName"
+        lblFirstName.Size = New Size(220, 23)
+        lblFirstName.TabIndex = 14
+        lblFirstName.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label1
+        ' lblDepartment
         ' 
-        Label1.BackColor = SystemColors.HighlightText
-        Label1.BorderStyle = BorderStyle.FixedSingle
-        Label1.Location = New Point(16, 185)
-        Label1.Margin = New Padding(3, 2, 3, 2)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(216, 23)
-        Label1.TabIndex = 15
-        Label1.TextAlign = ContentAlignment.MiddleLeft
+        lblDepartment.BackColor = SystemColors.HighlightText
+        lblDepartment.BorderStyle = BorderStyle.FixedSingle
+        lblDepartment.Location = New Point(18, 188)
+        lblDepartment.Margin = New Padding(3, 2, 3, 2)
+        lblDepartment.Name = "lblDepartment"
+        lblDepartment.Size = New Size(220, 23)
+        lblDepartment.TabIndex = 15
+        lblDepartment.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label2
+        ' lblRate
         ' 
-        Label2.BackColor = SystemColors.HighlightText
-        Label2.BorderStyle = BorderStyle.FixedSingle
-        Label2.Location = New Point(18, 236)
-        Label2.Margin = New Padding(3, 2, 3, 2)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(213, 23)
-        Label2.TabIndex = 16
-        Label2.TextAlign = ContentAlignment.MiddleLeft
+        lblRate.BackColor = SystemColors.HighlightText
+        lblRate.BorderStyle = BorderStyle.FixedSingle
+        lblRate.Location = New Point(20, 239)
+        lblRate.Margin = New Padding(3, 2, 3, 2)
+        lblRate.Name = "lblRate"
+        lblRate.Size = New Size(218, 23)
+        lblRate.TabIndex = 16
+        lblRate.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label5
+        ' lblTax
         ' 
-        Label5.BackColor = SystemColors.HighlightText
-        Label5.BorderStyle = BorderStyle.FixedSingle
-        Label5.Location = New Point(298, 346)
-        Label5.Margin = New Padding(3, 2, 3, 2)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(232, 23)
-        Label5.TabIndex = 19
-        Label5.TextAlign = ContentAlignment.MiddleLeft
+        lblTax.BackColor = SystemColors.HighlightText
+        lblTax.BorderStyle = BorderStyle.FixedSingle
+        lblTax.Location = New Point(300, 421)
+        lblTax.Margin = New Padding(3, 2, 3, 2)
+        lblTax.Name = "lblTax"
+        lblTax.Size = New Size(232, 23)
+        lblTax.TabIndex = 19
+        lblTax.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label6
+        ' lblGross
         ' 
-        Label6.BackColor = SystemColors.HighlightText
-        Label6.BorderStyle = BorderStyle.FixedSingle
-        Label6.Location = New Point(15, 346)
-        Label6.Margin = New Padding(3, 2, 3, 2)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(216, 23)
-        Label6.TabIndex = 20
-        Label6.TextAlign = ContentAlignment.MiddleLeft
+        lblGross.BackColor = SystemColors.HighlightText
+        lblGross.BorderStyle = BorderStyle.FixedSingle
+        lblGross.Location = New Point(17, 421)
+        lblGross.Margin = New Padding(3, 2, 3, 2)
+        lblGross.Name = "lblGross"
+        lblGross.Size = New Size(221, 23)
+        lblGross.TabIndex = 20
+        lblGross.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label7
+        ' lblBank
         ' 
-        Label7.BackColor = SystemColors.HighlightText
-        Label7.BorderStyle = BorderStyle.FixedSingle
-        Label7.Location = New Point(15, 397)
-        Label7.Margin = New Padding(3, 2, 3, 2)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(216, 23)
-        Label7.TabIndex = 21
-        Label7.TextAlign = ContentAlignment.MiddleLeft
+        lblBank.BackColor = SystemColors.HighlightText
+        lblBank.BorderStyle = BorderStyle.FixedSingle
+        lblBank.Location = New Point(17, 472)
+        lblBank.Margin = New Padding(3, 2, 3, 2)
+        lblBank.Name = "lblBank"
+        lblBank.Size = New Size(221, 23)
+        lblBank.TabIndex = 21
+        lblBank.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label8
+        ' lblAccNo
         ' 
-        Label8.BackColor = SystemColors.HighlightText
-        Label8.BorderStyle = BorderStyle.FixedSingle
-        Label8.Location = New Point(298, 397)
-        Label8.Margin = New Padding(3, 2, 3, 2)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(232, 23)
-        Label8.TabIndex = 22
-        Label8.TextAlign = ContentAlignment.MiddleLeft
+        lblAccNo.BackColor = SystemColors.HighlightText
+        lblAccNo.BorderStyle = BorderStyle.FixedSingle
+        lblAccNo.Location = New Point(300, 472)
+        lblAccNo.Margin = New Padding(3, 2, 3, 2)
+        lblAccNo.Name = "lblAccNo"
+        lblAccNo.Size = New Size(232, 23)
+        lblAccNo.TabIndex = 22
+        lblAccNo.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' DateTimePicker1
         ' 
-        DateTimePicker1.Location = New Point(15, 294)
+        DateTimePicker1.Location = New Point(17, 297)
         DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(216, 23)
+        DateTimePicker1.Size = New Size(221, 23)
         DateTimePicker1.TabIndex = 23
         ' 
         ' DateTimePicker2
         ' 
-        DateTimePicker2.Location = New Point(298, 294)
+        DateTimePicker2.Location = New Point(300, 297)
         DateTimePicker2.Name = "DateTimePicker2"
         DateTimePicker2.Size = New Size(232, 23)
         DateTimePicker2.TabIndex = 24
         ' 
-        ' MaterialButton1
+        ' btnPlay
         ' 
-        MaterialButton1.AutoSize = False
-        MaterialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink
-        MaterialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
-        MaterialButton1.Depth = 0
-        MaterialButton1.ForeColor = SystemColors.ControlLight
-        MaterialButton1.HighEmphasis = True
-        MaterialButton1.Icon = Nothing
-        MaterialButton1.Location = New Point(165, 528)
-        MaterialButton1.Margin = New Padding(4, 6, 4, 6)
-        MaterialButton1.MouseState = MaterialSkin.MouseState.HOVER
-        MaterialButton1.Name = "MaterialButton1"
-        MaterialButton1.NoAccentTextColor = Color.Empty
-        MaterialButton1.Size = New Size(195, 36)
-        MaterialButton1.TabIndex = 25
-        MaterialButton1.Text = "PAY"
-        MaterialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        MaterialButton1.UseAccentColor = False
-        MaterialButton1.UseVisualStyleBackColor = True
+        btnPlay.AutoSize = False
+        btnPlay.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnPlay.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnPlay.Depth = 0
+        btnPlay.ForeColor = SystemColors.ControlLight
+        btnPlay.HighEmphasis = True
+        btnPlay.Icon = Nothing
+        btnPlay.Location = New Point(173, 636)
+        btnPlay.Margin = New Padding(4, 6, 4, 6)
+        btnPlay.MouseState = MaterialSkin.MouseState.HOVER
+        btnPlay.Name = "btnPlay"
+        btnPlay.NoAccentTextColor = Color.Empty
+        btnPlay.Size = New Size(196, 36)
+        btnPlay.TabIndex = 25
+        btnPlay.Text = "PAY"
+        btnPlay.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnPlay.UseAccentColor = False
+        btnPlay.UseVisualStyleBackColor = True
         ' 
-        ' MaterialButton2
+        ' btnPreviousRecord
         ' 
-        MaterialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink
-        MaterialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
-        MaterialButton2.Depth = 0
-        MaterialButton2.ForeColor = SystemColors.ControlLight
-        MaterialButton2.HighEmphasis = True
-        MaterialButton2.Icon = Nothing
-        MaterialButton2.Location = New Point(165, 432)
-        MaterialButton2.Margin = New Padding(4, 6, 4, 6)
-        MaterialButton2.MouseState = MaterialSkin.MouseState.HOVER
-        MaterialButton2.Name = "MaterialButton2"
-        MaterialButton2.NoAccentTextColor = Color.Empty
-        MaterialButton2.Size = New Size(64, 36)
-        MaterialButton2.TabIndex = 26
-        MaterialButton2.Text = "PREV"
-        MaterialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        MaterialButton2.UseAccentColor = False
-        MaterialButton2.UseVisualStyleBackColor = True
+        btnPreviousRecord.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnPreviousRecord.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnPreviousRecord.Depth = 0
+        btnPreviousRecord.ForeColor = SystemColors.ControlLight
+        btnPreviousRecord.HighEmphasis = True
+        btnPreviousRecord.Icon = Nothing
+        btnPreviousRecord.Location = New Point(174, 588)
+        btnPreviousRecord.Margin = New Padding(4, 6, 4, 6)
+        btnPreviousRecord.MouseState = MaterialSkin.MouseState.HOVER
+        btnPreviousRecord.Name = "btnPreviousRecord"
+        btnPreviousRecord.NoAccentTextColor = Color.Empty
+        btnPreviousRecord.Size = New Size(64, 36)
+        btnPreviousRecord.TabIndex = 26
+        btnPreviousRecord.Text = "PREV"
+        btnPreviousRecord.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnPreviousRecord.UseAccentColor = False
+        btnPreviousRecord.UseVisualStyleBackColor = True
         ' 
-        ' MaterialButton3
+        ' btnNextRecord
         ' 
-        MaterialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink
-        MaterialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
-        MaterialButton3.Depth = 0
-        MaterialButton3.ForeColor = SystemColors.ControlLight
-        MaterialButton3.HighEmphasis = True
-        MaterialButton3.Icon = Nothing
-        MaterialButton3.Location = New Point(296, 432)
-        MaterialButton3.Margin = New Padding(4, 6, 4, 6)
-        MaterialButton3.MouseState = MaterialSkin.MouseState.HOVER
-        MaterialButton3.Name = "MaterialButton3"
-        MaterialButton3.NoAccentTextColor = Color.Empty
-        MaterialButton3.Size = New Size(64, 36)
-        MaterialButton3.TabIndex = 27
-        MaterialButton3.Text = "Next"
-        MaterialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        MaterialButton3.UseAccentColor = False
-        MaterialButton3.UseVisualStyleBackColor = True
+        btnNextRecord.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnNextRecord.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnNextRecord.Depth = 0
+        btnNextRecord.ForeColor = SystemColors.ControlLight
+        btnNextRecord.HighEmphasis = True
+        btnNextRecord.Icon = Nothing
+        btnNextRecord.Location = New Point(305, 588)
+        btnNextRecord.Margin = New Padding(4, 6, 4, 6)
+        btnNextRecord.MouseState = MaterialSkin.MouseState.HOVER
+        btnNextRecord.Name = "btnNextRecord"
+        btnNextRecord.NoAccentTextColor = Color.Empty
+        btnNextRecord.Size = New Size(64, 36)
+        btnNextRecord.TabIndex = 27
+        btnNextRecord.Text = "Next"
+        btnNextRecord.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnNextRecord.UseAccentColor = False
+        btnNextRecord.UseVisualStyleBackColor = True
         ' 
-        ' Label3
+        ' lblSecondName
         ' 
-        Label3.BackColor = SystemColors.HighlightText
-        Label3.BorderStyle = BorderStyle.FixedSingle
-        Label3.Location = New Point(299, 129)
-        Label3.Margin = New Padding(3, 2, 3, 2)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(231, 23)
-        Label3.TabIndex = 29
-        Label3.TextAlign = ContentAlignment.MiddleLeft
+        lblSecondName.BackColor = SystemColors.HighlightText
+        lblSecondName.BorderStyle = BorderStyle.FixedSingle
+        lblSecondName.Location = New Point(301, 132)
+        lblSecondName.Margin = New Padding(3, 2, 3, 2)
+        lblSecondName.Name = "lblSecondName"
+        lblSecondName.Size = New Size(231, 23)
+        lblSecondName.TabIndex = 29
+        lblSecondName.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' MaterialLabel1
         ' 
         MaterialLabel1.AutoSize = True
         MaterialLabel1.Depth = 0
-        MaterialLabel1.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        MaterialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        MaterialLabel1.Location = New Point(299, 103)
+        MaterialLabel1.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        MaterialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        MaterialLabel1.Location = New Point(301, 106)
         MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel1.Name = "MaterialLabel1"
-        MaterialLabel1.Size = New Size(98, 24)
+        MaterialLabel1.Size = New Size(70, 17)
         MaterialLabel1.TabIndex = 28
         MaterialLabel1.Text = "Last Name"
         ' 
-        ' Label4
+        ' lblPosition
         ' 
-        Label4.BackColor = SystemColors.HighlightText
-        Label4.BorderStyle = BorderStyle.FixedSingle
-        Label4.Location = New Point(298, 185)
-        Label4.Margin = New Padding(3, 2, 3, 2)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(232, 23)
-        Label4.TabIndex = 31
-        Label4.TextAlign = ContentAlignment.MiddleLeft
+        lblPosition.BackColor = SystemColors.HighlightText
+        lblPosition.BorderStyle = BorderStyle.FixedSingle
+        lblPosition.Location = New Point(300, 188)
+        lblPosition.Margin = New Padding(3, 2, 3, 2)
+        lblPosition.Name = "lblPosition"
+        lblPosition.Size = New Size(232, 23)
+        lblPosition.TabIndex = 31
+        lblPosition.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' MaterialLabel2
         ' 
         MaterialLabel2.AutoSize = True
         MaterialLabel2.Depth = 0
-        MaterialLabel2.Font = New Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel)
-        MaterialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6
-        MaterialLabel2.Location = New Point(298, 159)
+        MaterialLabel2.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        MaterialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        MaterialLabel2.Location = New Point(300, 162)
         MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel2.Name = "MaterialLabel2"
-        MaterialLabel2.Size = New Size(74, 24)
+        MaterialLabel2.Size = New Size(54, 17)
         MaterialLabel2.TabIndex = 30
         MaterialLabel2.Text = "Position"
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.AutoSize = False
+        btnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnSearch.Depth = 0
+        btnSearch.FlatStyle = FlatStyle.System
+        btnSearch.HighEmphasis = True
+        btnSearch.Icon = Nothing
+        btnSearch.Location = New Point(173, 78)
+        btnSearch.Margin = New Padding(4, 6, 4, 6)
+        btnSearch.MouseState = MaterialSkin.MouseState.HOVER
+        btnSearch.Name = "btnSearch"
+        btnSearch.NoAccentTextColor = Color.Empty
+        btnSearch.Size = New Size(65, 24)
+        btnSearch.TabIndex = 32
+        btnSearch.Text = "Search"
+        btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnSearch.UseAccentColor = False
+        btnSearch.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(18, 80)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(148, 23)
+        TextBox1.TabIndex = 33
+        ' 
+        ' lblPayDate
+        ' 
+        lblPayDate.BackColor = SystemColors.HighlightText
+        lblPayDate.BorderStyle = BorderStyle.FixedSingle
+        lblPayDate.Location = New Point(18, 359)
+        lblPayDate.Margin = New Padding(3, 2, 3, 2)
+        lblPayDate.Name = "lblPayDate"
+        lblPayDate.Size = New Size(218, 23)
+        lblPayDate.TabIndex = 35
+        lblPayDate.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' PayDate
+        ' 
+        PayDate.AutoSize = True
+        PayDate.Depth = 0
+        PayDate.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        PayDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        PayDate.Location = New Point(18, 333)
+        PayDate.MouseState = MaterialSkin.MouseState.HOVER
+        PayDate.Name = "PayDate"
+        PayDate.Size = New Size(58, 17)
+        PayDate.TabIndex = 34
+        PayDate.Text = "Pay Date"
         ' 
         ' frmPayroll
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
-        ClientSize = New Size(553, 618)
-        Controls.Add(Label4)
+        ClientSize = New Size(553, 681)
+        Controls.Add(lblPayDate)
+        Controls.Add(PayDate)
+        Controls.Add(TextBox1)
+        Controls.Add(btnSearch)
+        Controls.Add(lblPosition)
         Controls.Add(MaterialLabel2)
-        Controls.Add(Label3)
+        Controls.Add(lblSecondName)
         Controls.Add(MaterialLabel1)
-        Controls.Add(MaterialButton3)
-        Controls.Add(MaterialButton2)
-        Controls.Add(MaterialButton1)
+        Controls.Add(btnNextRecord)
+        Controls.Add(btnPreviousRecord)
+        Controls.Add(btnPlay)
         Controls.Add(DateTimePicker2)
         Controls.Add(DateTimePicker1)
-        Controls.Add(Label8)
-        Controls.Add(Label7)
-        Controls.Add(Label6)
-        Controls.Add(Label5)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Controls.Add(NameLabelText)
+        Controls.Add(lblAccNo)
+        Controls.Add(lblBank)
+        Controls.Add(lblGross)
+        Controls.Add(lblTax)
+        Controls.Add(lblRate)
+        Controls.Add(lblDepartment)
+        Controls.Add(lblFirstName)
         Controls.Add(IDLabelText)
-        Controls.Add(btnPay)
+        Controls.Add(btnClear)
         Controls.Add(lblBankName)
         Controls.Add(lblAccountNumber)
         Controls.Add(lblTaxDue)
         Controls.Add(lblTotalDue)
         Controls.Add(lblEndDate)
         Controls.Add(lblStartPeriod)
-        Controls.Add(lblHourlyRate)
-        Controls.Add(lblDepartment)
+        Controls.Add(HourlyRateLabel)
+        Controls.Add(DepartmentLabel)
         Controls.Add(lblName)
         Controls.Add(lblID)
         Controls.Add(btnPrint)
@@ -476,31 +536,35 @@ Partial Class frmPayroll
     Friend WithEvents btnPrint As MaterialSkin.Controls.MaterialButton
     Friend WithEvents lblID As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblName As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblDepartment As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblHourlyRate As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents DepartmentLabel As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents HourlyRateLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblStartPeriod As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblEndDate As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblTotalDue As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblTaxDue As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblAccountNumber As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblBankName As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents btnPay As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents btnClear As MaterialSkin.Controls.MaterialButton
     Friend WithEvents IDLabelText As Label
-    Friend WithEvents NameLabelText As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
+    Friend WithEvents lblFirstName As Label
+    Friend WithEvents lblDepartment As Label
+    Friend WithEvents lblRate As Label
+    Friend WithEvents lblTax As Label
+    Friend WithEvents lblGross As Label
+    Friend WithEvents lblBank As Label
+    Friend WithEvents lblAccNo As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents MaterialButton1 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents MaterialButton2 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents MaterialButton3 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents Label3 As Label
+    Friend WithEvents btnPlay As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents btnPreviousRecord As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents btnNextRecord As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents lblSecondName As Label
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents Label4 As Label
+    Friend WithEvents lblPosition As Label
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnSearch As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents lblPayDate As Label
+    Friend WithEvents PayDate As MaterialSkin.Controls.MaterialLabel
 
 End Class
