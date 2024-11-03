@@ -66,9 +66,7 @@ Public Class frmPayroll
     Private Sub CalcPay_Click(sender As Object, e As EventArgs) Handles btnCalcPay.Click
         Dim startDate As Date = dtpStart.Value
         Dim endDate As Date = dtpEnd.Value
-
         Dim rate As Decimal = CInt(lblRate.Text)
-
         Dim difference As TimeSpan = (endDate - startDate)
         Dim totalDays As Integer = CInt(difference.TotalDays) + 1
 
@@ -77,7 +75,8 @@ Public Class frmPayroll
         Dim tsxDue As Decimal = totalPay * 0.125
         Dim finalTotal As Decimal = totalPay - tsxDue
 
-        If totalDays < 0 Then
+        ' Prevent time travel and silly values like negative working days
+        If totalDays <= 0 Then
             MessageBox.Show($"Unless your employee is a time traveller, I don't see how they could have achieved working  {totalDays} days. Check your math!")
         Else
             lblDaysWorked.Text = totalDays.ToString()

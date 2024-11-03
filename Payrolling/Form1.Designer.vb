@@ -172,7 +172,7 @@ Partial Class frmPayroll
         lblAccountNumber.Depth = 0
         lblAccountNumber.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         lblAccountNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblAccountNumber.Location = New Point(300, 446)
+        lblAccountNumber.Location = New Point(296, 444)
         lblAccountNumber.MouseState = MaterialSkin.MouseState.HOVER
         lblAccountNumber.Name = "lblAccountNumber"
         lblAccountNumber.Size = New Size(107, 17)
@@ -294,7 +294,7 @@ Partial Class frmPayroll
         ' 
         lblAccNo.BackColor = SystemColors.Control
         lblAccNo.BorderStyle = BorderStyle.Fixed3D
-        lblAccNo.Location = New Point(300, 472)
+        lblAccNo.Location = New Point(296, 472)
         lblAccNo.Margin = New Padding(3, 2, 3, 2)
         lblAccNo.Name = "lblAccNo"
         lblAccNo.Size = New Size(230, 23)
@@ -367,7 +367,7 @@ Partial Class frmPayroll
         btnNextRecord.ForeColor = SystemColors.ControlLight
         btnNextRecord.HighEmphasis = True
         btnNextRecord.Icon = Nothing
-        btnNextRecord.Location = New Point(300, 523)
+        btnNextRecord.Location = New Point(296, 523)
         btnNextRecord.Margin = New Padding(4, 6, 4, 6)
         btnNextRecord.MouseState = MaterialSkin.MouseState.HOVER
         btnNextRecord.Name = "btnNextRecord"
