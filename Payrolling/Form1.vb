@@ -58,12 +58,12 @@ Public Class frmPayroll
         dtpEnd.CustomFormat = ""
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub Clear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtSearchBox.Text = ""
         ClearDates()
     End Sub
 
-    Private Sub btnCalcPay_Click(sender As Object, e As EventArgs) Handles btnCalcPay.Click
+    Private Sub CalcPay_Click(sender As Object, e As EventArgs) Handles btnCalcPay.Click
         Dim startDate As Date = dtpStart.Value
         Dim endDate As Date = dtpEnd.Value
 
@@ -72,14 +72,23 @@ Public Class frmPayroll
         Dim difference As TimeSpan = (endDate - startDate)
         Dim totalDays As Integer = CInt(difference.TotalDays) + 1
 
+        ' We assume they are working only 8hrs and not being paid overtime and a flat Tax Rate of 12.5%
+        Dim totalPay As Decimal = rate * totalDays * 8
+        Dim tsxDue As Decimal = totalPay * 0.125
+        Dim finalTotal As Decimal = totalPay - tsxDue
+
         If totalDays < 0 Then
             MessageBox.Show($"Unless your employee is a time traveller, I don't see how they could have achieved working  {totalDays} days. Check your math!")
         Else
             lblDaysWorked.Text = totalDays.ToString()
+            lblGross.Text = "KES " + totalPay.ToString()
+            lblPayDate.Text = endDate.AddDays(1).ToString()
+            lblTax.Text = tsxDue.ToString()
+            lblNetTotal.Text = finalTotal.ToString()
         End If
     End Sub
 
-    Private Sub btnPreviousRecord_Click(sender As Object, e As EventArgs) Handles btnPreviousRecord.Click
+    Private Sub PreviousRecord_Click(sender As Object, e As EventArgs) Handles btnPreviousRecord.Click
         If currentRecordIndex > 0 Then
             currentRecordIndex -= 1
             PopulateEmployeeDetails(currentRecordIndex)
@@ -88,7 +97,7 @@ Public Class frmPayroll
         End If
     End Sub
 
-    Private Sub btnNextRecord_Click(sender As Object, e As EventArgs) Handles btnNextRecord.Click
+    Private Sub NextRecord_Click(sender As Object, e As EventArgs) Handles btnNextRecord.Click
         If currentRecordIndex < employeeDataTable.Rows.Count - 1 Then
             currentRecordIndex += 1
             PopulateEmployeeDetails(currentRecordIndex)
@@ -96,4 +105,44 @@ Public Class frmPayroll
             MessageBox.Show("Congratulations! You reached the end of the records.")
         End If
     End Sub
+
+    Private Sub Search_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim searchID As String = txtSearchBox.Text.Trim()
+        Dim employeeID As Integer
+
+        If String.IsNullOrEmpty(searchID) OrElse Not Integer.TryParse(searchID, employeeID) Then
+            MessageBox.Show("Please enter a valid numeric Employee ID.")
+            Return
+        End If
+
+        Using connection As New OleDbConnection(connectionString)
+            Try
+                connection.Open()
+                Dim query As String = "SELECT Employees.*, Accounts.AccountNumber, Accounts.BankName " &
+                                  "FROM Employees " &
+                                  "INNER JOIN Accounts ON Employees.EmployeeID = Accounts.EmployeeID " &
+                                  "WHERE Employees.EmployeeID = @EmployeeID"
+                Dim command As New OleDbCommand(query, connection)
+                command.Parameters.AddWithValue("@EmployeeID", employeeID)
+
+                Using reader As OleDbDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        IDLabelText.Text = reader("EmployeeID").ToString()
+                        lblFirstName.Text = reader("FirstName").ToString()
+                        lblSecondName.Text = reader("LastName").ToString()
+                        lblDepartment.Text = reader("Department").ToString()
+                        lblPosition.Text = reader("Position").ToString()
+                        lblRate.Text = Convert.ToDecimal(reader("HourlyRate")).ToString()
+                        lblAccNo.Text = reader("AccountNumber").ToString()
+                        lblBank.Text = reader("BankName").ToString()
+                    Else
+                        MessageBox.Show("Employee ID not found.")
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error searching for employee: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
 End Class

@@ -28,8 +28,8 @@ Partial Class frmPayroll
         HourlyRateLabel = New MaterialSkin.Controls.MaterialLabel()
         lblStartPeriod = New MaterialSkin.Controls.MaterialLabel()
         lblEndDate = New MaterialSkin.Controls.MaterialLabel()
-        lblTotalDue = New MaterialSkin.Controls.MaterialLabel()
-        lblTaxDue = New MaterialSkin.Controls.MaterialLabel()
+        GrossTotalLabel = New MaterialSkin.Controls.MaterialLabel()
+        TaxDueLabel = New MaterialSkin.Controls.MaterialLabel()
         lblAccountNumber = New MaterialSkin.Controls.MaterialLabel()
         lblBankName = New MaterialSkin.Controls.MaterialLabel()
         btnClear = New MaterialSkin.Controls.MaterialButton()
@@ -53,7 +53,7 @@ Partial Class frmPayroll
         btnSearch = New MaterialSkin.Controls.MaterialButton()
         txtSearchBox = New TextBox()
         lblPayDate = New Label()
-        PayDate = New MaterialSkin.Controls.MaterialLabel()
+        PayDateLabel = New MaterialSkin.Controls.MaterialLabel()
         lblDaysWorked = New Label()
         DaysWorkedLabel = New MaterialSkin.Controls.MaterialLabel()
         btnCalcPay = New MaterialSkin.Controls.MaterialButton()
@@ -140,31 +140,31 @@ Partial Class frmPayroll
         lblEndDate.TabIndex = 6
         lblEndDate.Text = "End Date"
         ' 
-        ' lblTotalDue
+        ' GrossTotalLabel
         ' 
-        lblTotalDue.AutoSize = True
-        lblTotalDue.Depth = 0
-        lblTotalDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblTotalDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblTotalDue.Location = New Point(296, 333)
-        lblTotalDue.MouseState = MaterialSkin.MouseState.HOVER
-        lblTotalDue.Name = "lblTotalDue"
-        lblTotalDue.Size = New Size(75, 17)
-        lblTotalDue.TabIndex = 7
-        lblTotalDue.Text = "Gross Total"
+        GrossTotalLabel.AutoSize = True
+        GrossTotalLabel.Depth = 0
+        GrossTotalLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        GrossTotalLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        GrossTotalLabel.Location = New Point(296, 333)
+        GrossTotalLabel.MouseState = MaterialSkin.MouseState.HOVER
+        GrossTotalLabel.Name = "GrossTotalLabel"
+        GrossTotalLabel.Size = New Size(75, 17)
+        GrossTotalLabel.TabIndex = 7
+        GrossTotalLabel.Text = "Gross Total"
         ' 
-        ' lblTaxDue
+        ' TaxDueLabel
         ' 
-        lblTaxDue.AutoSize = True
-        lblTaxDue.Depth = 0
-        lblTaxDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
-        lblTaxDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblTaxDue.Location = New Point(17, 393)
-        lblTaxDue.MouseState = MaterialSkin.MouseState.HOVER
-        lblTaxDue.Name = "lblTaxDue"
-        lblTaxDue.Size = New Size(53, 17)
-        lblTaxDue.TabIndex = 8
-        lblTaxDue.Text = "Tax Due"
+        TaxDueLabel.AutoSize = True
+        TaxDueLabel.Depth = 0
+        TaxDueLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        TaxDueLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        TaxDueLabel.Location = New Point(17, 393)
+        TaxDueLabel.MouseState = MaterialSkin.MouseState.HOVER
+        TaxDueLabel.Name = "TaxDueLabel"
+        TaxDueLabel.Size = New Size(53, 17)
+        TaxDueLabel.TabIndex = 8
+        TaxDueLabel.Text = "Tax Due"
         ' 
         ' lblAccountNumber
         ' 
@@ -466,18 +466,18 @@ Partial Class frmPayroll
         lblPayDate.TabIndex = 35
         lblPayDate.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' PayDate
+        ' PayDateLabel
         ' 
-        PayDate.AutoSize = True
-        PayDate.Depth = 0
-        PayDate.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
-        PayDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        PayDate.Location = New Point(18, 333)
-        PayDate.MouseState = MaterialSkin.MouseState.HOVER
-        PayDate.Name = "PayDate"
-        PayDate.Size = New Size(58, 17)
-        PayDate.TabIndex = 34
-        PayDate.Text = "Pay Date"
+        PayDateLabel.AutoSize = True
+        PayDateLabel.Depth = 0
+        PayDateLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        PayDateLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        PayDateLabel.Location = New Point(18, 333)
+        PayDateLabel.MouseState = MaterialSkin.MouseState.HOVER
+        PayDateLabel.Name = "PayDateLabel"
+        PayDateLabel.Size = New Size(58, 17)
+        PayDateLabel.TabIndex = 34
+        PayDateLabel.Text = "Pay Date"
         ' 
         ' lblDaysWorked
         ' 
@@ -577,7 +577,7 @@ Partial Class frmPayroll
         Controls.Add(lblDaysWorked)
         Controls.Add(DaysWorkedLabel)
         Controls.Add(lblPayDate)
-        Controls.Add(PayDate)
+        Controls.Add(PayDateLabel)
         Controls.Add(txtSearchBox)
         Controls.Add(btnSearch)
         Controls.Add(lblPosition)
@@ -600,8 +600,8 @@ Partial Class frmPayroll
         Controls.Add(btnClear)
         Controls.Add(lblBankName)
         Controls.Add(lblAccountNumber)
-        Controls.Add(lblTaxDue)
-        Controls.Add(lblTotalDue)
+        Controls.Add(TaxDueLabel)
+        Controls.Add(GrossTotalLabel)
         Controls.Add(lblEndDate)
         Controls.Add(lblStartPeriod)
         Controls.Add(HourlyRateLabel)
@@ -620,8 +620,8 @@ Partial Class frmPayroll
     Friend WithEvents HourlyRateLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblStartPeriod As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblEndDate As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblTotalDue As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblTaxDue As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents GrossTotalLabel As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents TaxDueLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblAccountNumber As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblBankName As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnClear As MaterialSkin.Controls.MaterialButton
@@ -645,7 +645,7 @@ Partial Class frmPayroll
     Friend WithEvents btnSearch As MaterialSkin.Controls.MaterialButton
     Friend WithEvents txtSearchBox As TextBox
     Friend WithEvents lblPayDate As Label
-    Friend WithEvents PayDate As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents PayDateLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblDaysWorked As Label
     Friend WithEvents DaysWorkedLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnCalcPay As MaterialSkin.Controls.MaterialButton
