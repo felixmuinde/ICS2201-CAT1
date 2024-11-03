@@ -147,7 +147,7 @@ Public Class frmPayroll
     End Sub
 
     Private Sub Play_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
-        Dim savePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{lblFirstName.Text}{lblSecondName.Text}-{Date.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.pdf")
+        Dim savePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{lblFirstName.Text}{lblSecondName.Text}-{Date.Now.ToString("yyyy-MM-dd")}{Date.Now.ToString("ss")}.pdf")
         Dim pdfDoc As New Document(PageSize.A4, 40, 40, 40, 20)
 
         Try
