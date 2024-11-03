@@ -1,5 +1,7 @@
-﻿Imports MaterialSkin
-Imports System.Data.OleDb
+﻿Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
+
 
 Public Class frmPayroll
     Private connectionString = My.Settings.ConnectionString
@@ -144,4 +146,42 @@ Public Class frmPayroll
         End Using
     End Sub
 
+    Private Sub Play_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
+        Dim savePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{lblFirstName.Text}{lblSecondName.Text}-{Date.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.pdf")
+        Dim pdfDoc As New Document(PageSize.A4, 40, 40, 40, 20)
+
+        Try
+            PdfWriter.GetInstance(pdfDoc, New FileStream(savePath, FileMode.Create))
+
+            pdfDoc.Open()
+
+            Dim titleFont As New Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16, iTextSharp.text.Font.BOLD)
+            Dim regularFont As New Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.NORMAL)
+            'Title
+            pdfDoc.Add(New Paragraph($"PaySlip: {lblFirstName.Text} {lblSecondName.Text}", titleFont))
+            pdfDoc.Add(New Paragraph(Environment.NewLine))
+            'Body
+            pdfDoc.Add(New Paragraph("Employee ID: " & IDLabelText.Text, regularFont))
+            pdfDoc.Add(New Paragraph("First Name: " & lblFirstName.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Last Name: " & lblSecondName.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Department: " & lblDepartment.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Position: " & lblPosition.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Hourly Rate: " & lblRate.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Start Date: " & dtpStart.Value.ToString(), regularFont))
+            pdfDoc.Add(New Paragraph("End Date: " & dtpEnd.Value.ToString(), regularFont))
+            pdfDoc.Add(New Paragraph("Total Days Worked: " & lblDaysWorked.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Gross Pay: " & lblGross.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Tax Due: " & lblTax.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Net Total " & lblNetTotal.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Account Number: " & lblAccNo.Text, regularFont))
+            pdfDoc.Add(New Paragraph("Bank Name: " & lblBank.Text, regularFont))
+            pdfDoc.Add(New Paragraph(Environment.NewLine))
+
+            MessageBox.Show("PDF created successfully at: " & savePath)
+        Catch ex As Exception
+            MessageBox.Show("Error generating PDF: " & ex.Message)
+        Finally
+            pdfDoc.Close()
+        End Try
+    End Sub
 End Class
