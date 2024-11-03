@@ -22,7 +22,6 @@ Partial Class frmPayroll
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        btnPrint = New MaterialSkin.Controls.MaterialButton()
         lblID = New MaterialSkin.Controls.MaterialLabel()
         lblName = New MaterialSkin.Controls.MaterialLabel()
         DepartmentLabel = New MaterialSkin.Controls.MaterialLabel()
@@ -58,26 +57,10 @@ Partial Class frmPayroll
         lblDaysWorked = New Label()
         DaysWorkedLabel = New MaterialSkin.Controls.MaterialLabel()
         btnCalcPay = New MaterialSkin.Controls.MaterialButton()
+        MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
+        lblNetTotal = New Label()
+        NetTotalLabel = New MaterialSkin.Controls.MaterialLabel()
         SuspendLayout()
-        ' 
-        ' btnPrint
-        ' 
-        btnPrint.AutoSizeMode = AutoSizeMode.GrowAndShrink
-        btnPrint.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
-        btnPrint.Depth = 0
-        btnPrint.HighEmphasis = True
-        btnPrint.Icon = Nothing
-        btnPrint.Location = New Point(305, 619)
-        btnPrint.Margin = New Padding(4, 6, 4, 6)
-        btnPrint.MouseState = MaterialSkin.MouseState.HOVER
-        btnPrint.Name = "btnPrint"
-        btnPrint.NoAccentTextColor = Color.Empty
-        btnPrint.Size = New Size(64, 36)
-        btnPrint.TabIndex = 0
-        btnPrint.Text = "Print"
-        btnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        btnPrint.UseAccentColor = False
-        btnPrint.UseVisualStyleBackColor = True
         ' 
         ' lblID
         ' 
@@ -163,7 +146,7 @@ Partial Class frmPayroll
         lblTotalDue.Depth = 0
         lblTotalDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         lblTotalDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblTotalDue.Location = New Point(17, 395)
+        lblTotalDue.Location = New Point(296, 333)
         lblTotalDue.MouseState = MaterialSkin.MouseState.HOVER
         lblTotalDue.Name = "lblTotalDue"
         lblTotalDue.Size = New Size(75, 17)
@@ -176,7 +159,7 @@ Partial Class frmPayroll
         lblTaxDue.Depth = 0
         lblTaxDue.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         lblTaxDue.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblTaxDue.Location = New Point(300, 395)
+        lblTaxDue.Location = New Point(17, 393)
         lblTaxDue.MouseState = MaterialSkin.MouseState.HOVER
         lblTaxDue.Name = "lblTaxDue"
         lblTaxDue.Size = New Size(53, 17)
@@ -211,17 +194,18 @@ Partial Class frmPayroll
         ' 
         ' btnClear
         ' 
+        btnClear.AutoSize = False
         btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink
         btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
         btnClear.Depth = 0
         btnClear.HighEmphasis = True
         btnClear.Icon = Nothing
-        btnClear.Location = New Point(173, 619)
+        btnClear.Location = New Point(168, 619)
         btnClear.Margin = New Padding(4, 6, 4, 6)
         btnClear.MouseState = MaterialSkin.MouseState.HOVER
         btnClear.Name = "btnClear"
         btnClear.NoAccentTextColor = Color.Empty
-        btnClear.Size = New Size(66, 36)
+        btnClear.Size = New Size(196, 36)
         btnClear.TabIndex = 11
         btnClear.Text = "Clear"
         btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
@@ -232,7 +216,7 @@ Partial Class frmPayroll
         ' 
         IDLabelText.BackColor = SystemColors.Control
         IDLabelText.BorderStyle = BorderStyle.FixedSingle
-        IDLabelText.ForeColor = SystemColors.ControlLightLight
+        IDLabelText.ForeColor = SystemColors.ActiveCaptionText
         IDLabelText.Location = New Point(475, 76)
         IDLabelText.Margin = New Padding(3, 2, 3, 2)
         IDLabelText.Name = "IDLabelText"
@@ -242,8 +226,8 @@ Partial Class frmPayroll
         ' 
         ' lblFirstName
         ' 
-        lblFirstName.BackColor = SystemColors.HighlightText
-        lblFirstName.BorderStyle = BorderStyle.FixedSingle
+        lblFirstName.BackColor = SystemColors.Control
+        lblFirstName.BorderStyle = BorderStyle.Fixed3D
         lblFirstName.Location = New Point(18, 132)
         lblFirstName.Margin = New Padding(3, 2, 3, 2)
         lblFirstName.Name = "lblFirstName"
@@ -253,8 +237,8 @@ Partial Class frmPayroll
         ' 
         ' lblDepartment
         ' 
-        lblDepartment.BackColor = SystemColors.HighlightText
-        lblDepartment.BorderStyle = BorderStyle.FixedSingle
+        lblDepartment.BackColor = SystemColors.Control
+        lblDepartment.BorderStyle = BorderStyle.Fixed3D
         lblDepartment.Location = New Point(18, 188)
         lblDepartment.Margin = New Padding(3, 2, 3, 2)
         lblDepartment.Name = "lblDepartment"
@@ -264,41 +248,41 @@ Partial Class frmPayroll
         ' 
         ' lblRate
         ' 
-        lblRate.BackColor = SystemColors.HighlightText
-        lblRate.BorderStyle = BorderStyle.FixedSingle
-        lblRate.Location = New Point(20, 239)
+        lblRate.BackColor = SystemColors.Control
+        lblRate.BorderStyle = BorderStyle.Fixed3D
+        lblRate.Location = New Point(52, 239)
         lblRate.Margin = New Padding(3, 2, 3, 2)
         lblRate.Name = "lblRate"
-        lblRate.Size = New Size(218, 23)
+        lblRate.Size = New Size(186, 23)
         lblRate.TabIndex = 16
         lblRate.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' lblTax
         ' 
-        lblTax.BackColor = SystemColors.HighlightText
-        lblTax.BorderStyle = BorderStyle.FixedSingle
-        lblTax.Location = New Point(300, 421)
+        lblTax.BackColor = SystemColors.Control
+        lblTax.BorderStyle = BorderStyle.Fixed3D
+        lblTax.Location = New Point(17, 419)
         lblTax.Margin = New Padding(3, 2, 3, 2)
         lblTax.Name = "lblTax"
-        lblTax.Size = New Size(232, 23)
+        lblTax.Size = New Size(221, 23)
         lblTax.TabIndex = 19
         lblTax.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' lblGross
         ' 
-        lblGross.BackColor = SystemColors.HighlightText
-        lblGross.BorderStyle = BorderStyle.FixedSingle
-        lblGross.Location = New Point(17, 421)
+        lblGross.BackColor = SystemColors.Control
+        lblGross.BorderStyle = BorderStyle.Fixed3D
+        lblGross.Location = New Point(296, 359)
         lblGross.Margin = New Padding(3, 2, 3, 2)
         lblGross.Name = "lblGross"
-        lblGross.Size = New Size(221, 23)
+        lblGross.Size = New Size(234, 23)
         lblGross.TabIndex = 20
         lblGross.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' lblBank
         ' 
-        lblBank.BackColor = SystemColors.HighlightText
-        lblBank.BorderStyle = BorderStyle.FixedSingle
+        lblBank.BackColor = SystemColors.Control
+        lblBank.BorderStyle = BorderStyle.Fixed3D
         lblBank.Location = New Point(17, 472)
         lblBank.Margin = New Padding(3, 2, 3, 2)
         lblBank.Name = "lblBank"
@@ -308,12 +292,12 @@ Partial Class frmPayroll
         ' 
         ' lblAccNo
         ' 
-        lblAccNo.BackColor = SystemColors.HighlightText
-        lblAccNo.BorderStyle = BorderStyle.FixedSingle
+        lblAccNo.BackColor = SystemColors.Control
+        lblAccNo.BorderStyle = BorderStyle.Fixed3D
         lblAccNo.Location = New Point(300, 472)
         lblAccNo.Margin = New Padding(3, 2, 3, 2)
         lblAccNo.Name = "lblAccNo"
-        lblAccNo.Size = New Size(232, 23)
+        lblAccNo.Size = New Size(230, 23)
         lblAccNo.TabIndex = 22
         lblAccNo.TextAlign = ContentAlignment.MiddleLeft
         ' 
@@ -330,29 +314,30 @@ Partial Class frmPayroll
         dtpEnd.Format = DateTimePickerFormat.Short
         dtpEnd.Location = New Point(300, 297)
         dtpEnd.Name = "dtpEnd"
-        dtpEnd.Size = New Size(232, 23)
+        dtpEnd.Size = New Size(230, 23)
         dtpEnd.TabIndex = 24
         ' 
         ' btnPlay
         ' 
         btnPlay.AutoSize = False
         btnPlay.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnPlay.BackColor = Color.Lime
         btnPlay.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
         btnPlay.Depth = 0
         btnPlay.ForeColor = SystemColors.ControlLight
         btnPlay.HighEmphasis = True
         btnPlay.Icon = Nothing
-        btnPlay.Location = New Point(274, 571)
+        btnPlay.Location = New Point(269, 571)
         btnPlay.Margin = New Padding(4, 6, 4, 6)
         btnPlay.MouseState = MaterialSkin.MouseState.HOVER
         btnPlay.Name = "btnPlay"
         btnPlay.NoAccentTextColor = Color.Empty
         btnPlay.Size = New Size(95, 36)
         btnPlay.TabIndex = 25
-        btnPlay.Text = "PAY"
+        btnPlay.Text = "Generate Slip"
         btnPlay.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         btnPlay.UseAccentColor = False
-        btnPlay.UseVisualStyleBackColor = True
+        btnPlay.UseVisualStyleBackColor = False
         ' 
         ' btnPreviousRecord
         ' 
@@ -382,7 +367,7 @@ Partial Class frmPayroll
         btnNextRecord.ForeColor = SystemColors.ControlLight
         btnNextRecord.HighEmphasis = True
         btnNextRecord.Icon = Nothing
-        btnNextRecord.Location = New Point(305, 523)
+        btnNextRecord.Location = New Point(300, 523)
         btnNextRecord.Margin = New Padding(4, 6, 4, 6)
         btnNextRecord.MouseState = MaterialSkin.MouseState.HOVER
         btnNextRecord.Name = "btnNextRecord"
@@ -396,8 +381,8 @@ Partial Class frmPayroll
         ' 
         ' lblSecondName
         ' 
-        lblSecondName.BackColor = SystemColors.HighlightText
-        lblSecondName.BorderStyle = BorderStyle.FixedSingle
+        lblSecondName.BackColor = SystemColors.Control
+        lblSecondName.BorderStyle = BorderStyle.Fixed3D
         lblSecondName.Location = New Point(301, 132)
         lblSecondName.Margin = New Padding(3, 2, 3, 2)
         lblSecondName.Name = "lblSecondName"
@@ -420,8 +405,8 @@ Partial Class frmPayroll
         ' 
         ' lblPosition
         ' 
-        lblPosition.BackColor = SystemColors.HighlightText
-        lblPosition.BorderStyle = BorderStyle.FixedSingle
+        lblPosition.BackColor = SystemColors.Control
+        lblPosition.BorderStyle = BorderStyle.Fixed3D
         lblPosition.Location = New Point(300, 188)
         lblPosition.Margin = New Padding(3, 2, 3, 2)
         lblPosition.Name = "lblPosition"
@@ -472,8 +457,8 @@ Partial Class frmPayroll
         ' 
         ' lblPayDate
         ' 
-        lblPayDate.BackColor = SystemColors.HighlightText
-        lblPayDate.BorderStyle = BorderStyle.FixedSingle
+        lblPayDate.BackColor = SystemColors.Control
+        lblPayDate.BorderStyle = BorderStyle.Fixed3D
         lblPayDate.Location = New Point(18, 359)
         lblPayDate.Margin = New Padding(3, 2, 3, 2)
         lblPayDate.Name = "lblPayDate"
@@ -497,9 +482,9 @@ Partial Class frmPayroll
         ' lblDaysWorked
         ' 
         lblDaysWorked.BackColor = SystemColors.Control
-        lblDaysWorked.BorderStyle = BorderStyle.FixedSingle
+        lblDaysWorked.BorderStyle = BorderStyle.Fixed3D
         lblDaysWorked.ForeColor = SystemColors.InfoText
-        lblDaysWorked.Location = New Point(475, 333)
+        lblDaysWorked.Location = New Point(475, 327)
         lblDaysWorked.Margin = New Padding(3, 2, 3, 2)
         lblDaysWorked.Name = "lblDaysWorked"
         lblDaysWorked.Size = New Size(55, 23)
@@ -513,7 +498,7 @@ Partial Class frmPayroll
         DaysWorkedLabel.Depth = 0
         DaysWorkedLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         DaysWorkedLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        DaysWorkedLabel.Location = New Point(386, 336)
+        DaysWorkedLabel.Location = New Point(386, 333)
         DaysWorkedLabel.MouseState = MaterialSkin.MouseState.HOVER
         DaysWorkedLabel.Name = "DaysWorkedLabel"
         DaysWorkedLabel.Size = New Size(83, 17)
@@ -530,7 +515,7 @@ Partial Class frmPayroll
         btnCalcPay.ForeColor = SystemColors.ControlLight
         btnCalcPay.HighEmphasis = True
         btnCalcPay.Icon = Nothing
-        btnCalcPay.Location = New Point(175, 571)
+        btnCalcPay.Location = New Point(173, 571)
         btnCalcPay.Margin = New Padding(4, 6, 4, 6)
         btnCalcPay.MouseState = MaterialSkin.MouseState.HOVER
         btnCalcPay.Name = "btnCalcPay"
@@ -542,12 +527,52 @@ Partial Class frmPayroll
         btnCalcPay.UseAccentColor = False
         btnCalcPay.UseVisualStyleBackColor = True
         ' 
+        ' MaterialLabel3
+        ' 
+        MaterialLabel3.AutoSize = True
+        MaterialLabel3.Depth = 0
+        MaterialLabel3.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        MaterialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        MaterialLabel3.Location = New Point(20, 242)
+        MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
+        MaterialLabel3.Name = "MaterialLabel3"
+        MaterialLabel3.Size = New Size(26, 17)
+        MaterialLabel3.TabIndex = 39
+        MaterialLabel3.Text = "KES"
+        ' 
+        ' lblNetTotal
+        ' 
+        lblNetTotal.BackColor = SystemColors.Control
+        lblNetTotal.BorderStyle = BorderStyle.Fixed3D
+        lblNetTotal.Location = New Point(296, 419)
+        lblNetTotal.Margin = New Padding(3, 2, 3, 2)
+        lblNetTotal.Name = "lblNetTotal"
+        lblNetTotal.Size = New Size(234, 23)
+        lblNetTotal.TabIndex = 41
+        lblNetTotal.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' NetTotalLabel
+        ' 
+        NetTotalLabel.AutoSize = True
+        NetTotalLabel.Depth = 0
+        NetTotalLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        NetTotalLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        NetTotalLabel.Location = New Point(296, 393)
+        NetTotalLabel.MouseState = MaterialSkin.MouseState.HOVER
+        NetTotalLabel.Name = "NetTotalLabel"
+        NetTotalLabel.Size = New Size(70, 17)
+        NetTotalLabel.TabIndex = 40
+        NetTotalLabel.Text = "Final Total"
+        ' 
         ' frmPayroll
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
         ClientSize = New Size(553, 681)
+        Controls.Add(lblNetTotal)
+        Controls.Add(NetTotalLabel)
+        Controls.Add(MaterialLabel3)
         Controls.Add(btnCalcPay)
         Controls.Add(lblDaysWorked)
         Controls.Add(DaysWorkedLabel)
@@ -583,14 +608,12 @@ Partial Class frmPayroll
         Controls.Add(DepartmentLabel)
         Controls.Add(lblName)
         Controls.Add(lblID)
-        Controls.Add(btnPrint)
         Name = "frmPayroll"
         Sizable = False
         Text = "Payroll Processor"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents btnPrint As MaterialSkin.Controls.MaterialButton
     Friend WithEvents lblID As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblName As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents DepartmentLabel As MaterialSkin.Controls.MaterialLabel
@@ -626,5 +649,8 @@ Partial Class frmPayroll
     Friend WithEvents lblDaysWorked As Label
     Friend WithEvents DaysWorkedLabel As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnCalcPay As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblNetTotal As Label
+    Friend WithEvents NetTotalLabel As MaterialSkin.Controls.MaterialLabel
 
 End Class
