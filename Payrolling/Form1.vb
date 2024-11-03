@@ -33,4 +33,28 @@ Public Class frmPayroll
             End Try
         End Using
     End Sub
+
+    Private Sub ClearDates()
+        dtpStart.CustomFormat = ""
+        dtpEnd.CustomFormat = ""
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtSearchBox.Text = ""
+        ClearDates()
+    End Sub
+
+    Private Sub btnCalcPay_Click(sender As Object, e As EventArgs) Handles btnCalcPay.Click
+        Dim startDate As Date = dtpStart.Value
+        Dim endDate As Date = dtpEnd.Value
+
+        Dim difference As TimeSpan = (endDate - startDate)
+        Dim totalDays As Integer = CInt(difference.TotalDays)
+
+        If totalDays < 0 Then
+            MessageBox.Show($"Unless your employee is a time traveller, I don't see how they could have achieved working  {totalDays} days. Check your math!")
+        Else
+            lblDaysWorked.Text = totalDays.ToString()
+        End If
+    End Sub
 End Class

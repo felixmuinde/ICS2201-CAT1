@@ -42,8 +42,8 @@ Partial Class frmPayroll
         lblGross = New Label()
         lblBank = New Label()
         lblAccNo = New Label()
-        DateTimePicker1 = New DateTimePicker()
-        DateTimePicker2 = New DateTimePicker()
+        dtpStart = New DateTimePicker()
+        dtpEnd = New DateTimePicker()
         btnPlay = New MaterialSkin.Controls.MaterialButton()
         btnPreviousRecord = New MaterialSkin.Controls.MaterialButton()
         btnNextRecord = New MaterialSkin.Controls.MaterialButton()
@@ -52,9 +52,12 @@ Partial Class frmPayroll
         lblPosition = New Label()
         MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         btnSearch = New MaterialSkin.Controls.MaterialButton()
-        TextBox1 = New TextBox()
+        txtSearchBox = New TextBox()
         lblPayDate = New Label()
         PayDate = New MaterialSkin.Controls.MaterialLabel()
+        lblDaysWorked = New Label()
+        DaysWorkedLabel = New MaterialSkin.Controls.MaterialLabel()
+        btnCalcPay = New MaterialSkin.Controls.MaterialButton()
         SuspendLayout()
         ' 
         ' btnPrint
@@ -64,7 +67,7 @@ Partial Class frmPayroll
         btnPrint.Depth = 0
         btnPrint.HighEmphasis = True
         btnPrint.Icon = Nothing
-        btnPrint.Location = New Point(305, 540)
+        btnPrint.Location = New Point(305, 619)
         btnPrint.Margin = New Padding(4, 6, 4, 6)
         btnPrint.MouseState = MaterialSkin.MouseState.HOVER
         btnPrint.Name = "btnPrint"
@@ -95,7 +98,7 @@ Partial Class frmPayroll
         lblName.Depth = 0
         lblName.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         lblName.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblName.Location = New Point(18, 106)
+        lblName.Location = New Point(18, 113)
         lblName.MouseState = MaterialSkin.MouseState.HOVER
         lblName.Name = "lblName"
         lblName.Size = New Size(71, 17)
@@ -108,7 +111,7 @@ Partial Class frmPayroll
         DepartmentLabel.Depth = 0
         DepartmentLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         DepartmentLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        DepartmentLabel.Location = New Point(18, 162)
+        DepartmentLabel.Location = New Point(18, 169)
         DepartmentLabel.MouseState = MaterialSkin.MouseState.HOVER
         DepartmentLabel.Name = "DepartmentLabel"
         DepartmentLabel.Size = New Size(77, 17)
@@ -121,7 +124,7 @@ Partial Class frmPayroll
         HourlyRateLabel.Depth = 0
         HourlyRateLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         HourlyRateLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        HourlyRateLabel.Location = New Point(20, 213)
+        HourlyRateLabel.Location = New Point(20, 220)
         HourlyRateLabel.MouseState = MaterialSkin.MouseState.HOVER
         HourlyRateLabel.Name = "HourlyRateLabel"
         HourlyRateLabel.Size = New Size(76, 17)
@@ -213,7 +216,7 @@ Partial Class frmPayroll
         btnClear.Depth = 0
         btnClear.HighEmphasis = True
         btnClear.Icon = Nothing
-        btnClear.Location = New Point(173, 540)
+        btnClear.Location = New Point(173, 619)
         btnClear.Margin = New Padding(4, 6, 4, 6)
         btnClear.MouseState = MaterialSkin.MouseState.HOVER
         btnClear.Name = "btnClear"
@@ -227,8 +230,9 @@ Partial Class frmPayroll
         ' 
         ' IDLabelText
         ' 
-        IDLabelText.BackColor = SystemColors.HighlightText
+        IDLabelText.BackColor = SystemColors.Control
         IDLabelText.BorderStyle = BorderStyle.FixedSingle
+        IDLabelText.ForeColor = SystemColors.ControlLightLight
         IDLabelText.Location = New Point(475, 76)
         IDLabelText.Margin = New Padding(3, 2, 3, 2)
         IDLabelText.Name = "IDLabelText"
@@ -313,19 +317,21 @@ Partial Class frmPayroll
         lblAccNo.TabIndex = 22
         lblAccNo.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' DateTimePicker1
+        ' dtpStart
         ' 
-        DateTimePicker1.Location = New Point(17, 297)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(221, 23)
-        DateTimePicker1.TabIndex = 23
+        dtpStart.Format = DateTimePickerFormat.Short
+        dtpStart.Location = New Point(17, 297)
+        dtpStart.Name = "dtpStart"
+        dtpStart.Size = New Size(221, 23)
+        dtpStart.TabIndex = 23
         ' 
-        ' DateTimePicker2
+        ' dtpEnd
         ' 
-        DateTimePicker2.Location = New Point(300, 297)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(232, 23)
-        DateTimePicker2.TabIndex = 24
+        dtpEnd.Format = DateTimePickerFormat.Short
+        dtpEnd.Location = New Point(300, 297)
+        dtpEnd.Name = "dtpEnd"
+        dtpEnd.Size = New Size(232, 23)
+        dtpEnd.TabIndex = 24
         ' 
         ' btnPlay
         ' 
@@ -336,12 +342,12 @@ Partial Class frmPayroll
         btnPlay.ForeColor = SystemColors.ControlLight
         btnPlay.HighEmphasis = True
         btnPlay.Icon = Nothing
-        btnPlay.Location = New Point(173, 636)
+        btnPlay.Location = New Point(274, 571)
         btnPlay.Margin = New Padding(4, 6, 4, 6)
         btnPlay.MouseState = MaterialSkin.MouseState.HOVER
         btnPlay.Name = "btnPlay"
         btnPlay.NoAccentTextColor = Color.Empty
-        btnPlay.Size = New Size(196, 36)
+        btnPlay.Size = New Size(95, 36)
         btnPlay.TabIndex = 25
         btnPlay.Text = "PAY"
         btnPlay.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
@@ -356,7 +362,7 @@ Partial Class frmPayroll
         btnPreviousRecord.ForeColor = SystemColors.ControlLight
         btnPreviousRecord.HighEmphasis = True
         btnPreviousRecord.Icon = Nothing
-        btnPreviousRecord.Location = New Point(174, 588)
+        btnPreviousRecord.Location = New Point(174, 523)
         btnPreviousRecord.Margin = New Padding(4, 6, 4, 6)
         btnPreviousRecord.MouseState = MaterialSkin.MouseState.HOVER
         btnPreviousRecord.Name = "btnPreviousRecord"
@@ -376,7 +382,7 @@ Partial Class frmPayroll
         btnNextRecord.ForeColor = SystemColors.ControlLight
         btnNextRecord.HighEmphasis = True
         btnNextRecord.Icon = Nothing
-        btnNextRecord.Location = New Point(305, 588)
+        btnNextRecord.Location = New Point(305, 523)
         btnNextRecord.Margin = New Padding(4, 6, 4, 6)
         btnNextRecord.MouseState = MaterialSkin.MouseState.HOVER
         btnNextRecord.Name = "btnNextRecord"
@@ -405,7 +411,7 @@ Partial Class frmPayroll
         MaterialLabel1.Depth = 0
         MaterialLabel1.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         MaterialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        MaterialLabel1.Location = New Point(301, 106)
+        MaterialLabel1.Location = New Point(301, 113)
         MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel1.Name = "MaterialLabel1"
         MaterialLabel1.Size = New Size(70, 17)
@@ -429,7 +435,7 @@ Partial Class frmPayroll
         MaterialLabel2.Depth = 0
         MaterialLabel2.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         MaterialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        MaterialLabel2.Location = New Point(300, 162)
+        MaterialLabel2.Location = New Point(300, 169)
         MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel2.Name = "MaterialLabel2"
         MaterialLabel2.Size = New Size(54, 17)
@@ -457,12 +463,12 @@ Partial Class frmPayroll
         btnSearch.UseAccentColor = False
         btnSearch.UseVisualStyleBackColor = True
         ' 
-        ' TextBox1
+        ' txtSearchBox
         ' 
-        TextBox1.Location = New Point(18, 80)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(148, 23)
-        TextBox1.TabIndex = 33
+        txtSearchBox.Location = New Point(18, 80)
+        txtSearchBox.Name = "txtSearchBox"
+        txtSearchBox.Size = New Size(148, 23)
+        txtSearchBox.TabIndex = 33
         ' 
         ' lblPayDate
         ' 
@@ -488,15 +494,66 @@ Partial Class frmPayroll
         PayDate.TabIndex = 34
         PayDate.Text = "Pay Date"
         ' 
+        ' lblDaysWorked
+        ' 
+        lblDaysWorked.BackColor = SystemColors.Control
+        lblDaysWorked.BorderStyle = BorderStyle.FixedSingle
+        lblDaysWorked.ForeColor = SystemColors.InfoText
+        lblDaysWorked.Location = New Point(475, 333)
+        lblDaysWorked.Margin = New Padding(3, 2, 3, 2)
+        lblDaysWorked.Name = "lblDaysWorked"
+        lblDaysWorked.Size = New Size(55, 23)
+        lblDaysWorked.TabIndex = 37
+        lblDaysWorked.Text = "0"
+        lblDaysWorked.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' DaysWorkedLabel
+        ' 
+        DaysWorkedLabel.AutoSize = True
+        DaysWorkedLabel.Depth = 0
+        DaysWorkedLabel.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        DaysWorkedLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
+        DaysWorkedLabel.Location = New Point(386, 336)
+        DaysWorkedLabel.MouseState = MaterialSkin.MouseState.HOVER
+        DaysWorkedLabel.Name = "DaysWorkedLabel"
+        DaysWorkedLabel.Size = New Size(83, 17)
+        DaysWorkedLabel.TabIndex = 36
+        DaysWorkedLabel.Text = "Days Worked"
+        ' 
+        ' btnCalcPay
+        ' 
+        btnCalcPay.AutoSize = False
+        btnCalcPay.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnCalcPay.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnCalcPay.Depth = 0
+        btnCalcPay.Font = New Font("Segoe UI", 6F)
+        btnCalcPay.ForeColor = SystemColors.ControlLight
+        btnCalcPay.HighEmphasis = True
+        btnCalcPay.Icon = Nothing
+        btnCalcPay.Location = New Point(175, 571)
+        btnCalcPay.Margin = New Padding(4, 6, 4, 6)
+        btnCalcPay.MouseState = MaterialSkin.MouseState.HOVER
+        btnCalcPay.Name = "btnCalcPay"
+        btnCalcPay.NoAccentTextColor = Color.Empty
+        btnCalcPay.Size = New Size(91, 36)
+        btnCalcPay.TabIndex = 38
+        btnCalcPay.Text = "Calculate Pay"
+        btnCalcPay.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnCalcPay.UseAccentColor = False
+        btnCalcPay.UseVisualStyleBackColor = True
+        ' 
         ' frmPayroll
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
         ClientSize = New Size(553, 681)
+        Controls.Add(btnCalcPay)
+        Controls.Add(lblDaysWorked)
+        Controls.Add(DaysWorkedLabel)
         Controls.Add(lblPayDate)
         Controls.Add(PayDate)
-        Controls.Add(TextBox1)
+        Controls.Add(txtSearchBox)
         Controls.Add(btnSearch)
         Controls.Add(lblPosition)
         Controls.Add(MaterialLabel2)
@@ -505,8 +562,8 @@ Partial Class frmPayroll
         Controls.Add(btnNextRecord)
         Controls.Add(btnPreviousRecord)
         Controls.Add(btnPlay)
-        Controls.Add(DateTimePicker2)
-        Controls.Add(DateTimePicker1)
+        Controls.Add(dtpEnd)
+        Controls.Add(dtpStart)
         Controls.Add(lblAccNo)
         Controls.Add(lblBank)
         Controls.Add(lblGross)
@@ -553,8 +610,8 @@ Partial Class frmPayroll
     Friend WithEvents lblGross As Label
     Friend WithEvents lblBank As Label
     Friend WithEvents lblAccNo As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents dtpStart As DateTimePicker
+    Friend WithEvents dtpEnd As DateTimePicker
     Friend WithEvents btnPlay As MaterialSkin.Controls.MaterialButton
     Friend WithEvents btnPreviousRecord As MaterialSkin.Controls.MaterialButton
     Friend WithEvents btnNextRecord As MaterialSkin.Controls.MaterialButton
@@ -563,8 +620,11 @@ Partial Class frmPayroll
     Friend WithEvents lblPosition As Label
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnSearch As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSearchBox As TextBox
     Friend WithEvents lblPayDate As Label
     Friend WithEvents PayDate As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblDaysWorked As Label
+    Friend WithEvents DaysWorkedLabel As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnCalcPay As MaterialSkin.Controls.MaterialButton
 
 End Class
