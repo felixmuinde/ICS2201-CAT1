@@ -33,22 +33,14 @@ Partial Class frmPayroll
         lblAccountNumber = New MaterialSkin.Controls.MaterialLabel()
         lblBankName = New MaterialSkin.Controls.MaterialLabel()
         btnClear = New MaterialSkin.Controls.MaterialButton()
-        IDLabelText = New Label()
-        lblFirstName = New Label()
-        lblDepartment = New Label()
-        lblRate = New Label()
         lblTax = New Label()
         lblGross = New Label()
-        lblBank = New Label()
-        lblAccNo = New Label()
         dtpStart = New DateTimePicker()
         dtpEnd = New DateTimePicker()
         btnPlay = New MaterialSkin.Controls.MaterialButton()
         btnPreviousRecord = New MaterialSkin.Controls.MaterialButton()
         btnNextRecord = New MaterialSkin.Controls.MaterialButton()
-        lblSecondName = New Label()
         MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        lblPosition = New Label()
         MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         btnSearch = New MaterialSkin.Controls.MaterialButton()
         txtSearchBox = New TextBox()
@@ -60,6 +52,14 @@ Partial Class frmPayroll
         MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         lblNetTotal = New Label()
         NetTotalLabel = New MaterialSkin.Controls.MaterialLabel()
+        lblFirstName = New TextBox()
+        lblSecondName = New TextBox()
+        lblDepartment = New TextBox()
+        lblPosition = New TextBox()
+        lblRate = New TextBox()
+        lblAccNo = New TextBox()
+        lblBank = New TextBox()
+        IDLabelText = New TextBox()
         SuspendLayout()
         ' 
         ' lblID
@@ -133,7 +133,7 @@ Partial Class frmPayroll
         lblEndDate.Depth = 0
         lblEndDate.Font = New Font("Roboto", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         lblEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Button
-        lblEndDate.Location = New Point(300, 272)
+        lblEndDate.Location = New Point(299, 272)
         lblEndDate.MouseState = MaterialSkin.MouseState.HOVER
         lblEndDate.Name = "lblEndDate"
         lblEndDate.Size = New Size(58, 17)
@@ -200,62 +200,17 @@ Partial Class frmPayroll
         btnClear.Depth = 0
         btnClear.HighEmphasis = True
         btnClear.Icon = Nothing
-        btnClear.Location = New Point(168, 619)
+        btnClear.Location = New Point(173, 619)
         btnClear.Margin = New Padding(4, 6, 4, 6)
         btnClear.MouseState = MaterialSkin.MouseState.HOVER
         btnClear.Name = "btnClear"
         btnClear.NoAccentTextColor = Color.Empty
-        btnClear.Size = New Size(196, 36)
+        btnClear.Size = New Size(191, 36)
         btnClear.TabIndex = 11
         btnClear.Text = "Clear"
         btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         btnClear.UseAccentColor = False
         btnClear.UseVisualStyleBackColor = True
-        ' 
-        ' IDLabelText
-        ' 
-        IDLabelText.BackColor = SystemColors.Control
-        IDLabelText.BorderStyle = BorderStyle.FixedSingle
-        IDLabelText.ForeColor = SystemColors.ActiveCaptionText
-        IDLabelText.Location = New Point(475, 76)
-        IDLabelText.Margin = New Padding(3, 2, 3, 2)
-        IDLabelText.Name = "IDLabelText"
-        IDLabelText.Size = New Size(55, 23)
-        IDLabelText.TabIndex = 13
-        IDLabelText.TextAlign = ContentAlignment.MiddleRight
-        ' 
-        ' lblFirstName
-        ' 
-        lblFirstName.BackColor = SystemColors.Control
-        lblFirstName.BorderStyle = BorderStyle.Fixed3D
-        lblFirstName.Location = New Point(18, 132)
-        lblFirstName.Margin = New Padding(3, 2, 3, 2)
-        lblFirstName.Name = "lblFirstName"
-        lblFirstName.Size = New Size(220, 23)
-        lblFirstName.TabIndex = 14
-        lblFirstName.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' lblDepartment
-        ' 
-        lblDepartment.BackColor = SystemColors.Control
-        lblDepartment.BorderStyle = BorderStyle.Fixed3D
-        lblDepartment.Location = New Point(18, 188)
-        lblDepartment.Margin = New Padding(3, 2, 3, 2)
-        lblDepartment.Name = "lblDepartment"
-        lblDepartment.Size = New Size(220, 23)
-        lblDepartment.TabIndex = 15
-        lblDepartment.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' lblRate
-        ' 
-        lblRate.BackColor = SystemColors.Control
-        lblRate.BorderStyle = BorderStyle.Fixed3D
-        lblRate.Location = New Point(52, 239)
-        lblRate.Margin = New Padding(3, 2, 3, 2)
-        lblRate.Name = "lblRate"
-        lblRate.Size = New Size(186, 23)
-        lblRate.TabIndex = 16
-        lblRate.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' lblTax
         ' 
@@ -279,28 +234,6 @@ Partial Class frmPayroll
         lblGross.TabIndex = 20
         lblGross.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' lblBank
-        ' 
-        lblBank.BackColor = SystemColors.Control
-        lblBank.BorderStyle = BorderStyle.Fixed3D
-        lblBank.Location = New Point(17, 472)
-        lblBank.Margin = New Padding(3, 2, 3, 2)
-        lblBank.Name = "lblBank"
-        lblBank.Size = New Size(221, 23)
-        lblBank.TabIndex = 21
-        lblBank.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' lblAccNo
-        ' 
-        lblAccNo.BackColor = SystemColors.Control
-        lblAccNo.BorderStyle = BorderStyle.Fixed3D
-        lblAccNo.Location = New Point(296, 472)
-        lblAccNo.Margin = New Padding(3, 2, 3, 2)
-        lblAccNo.Name = "lblAccNo"
-        lblAccNo.Size = New Size(230, 23)
-        lblAccNo.TabIndex = 22
-        lblAccNo.TextAlign = ContentAlignment.MiddleLeft
-        ' 
         ' dtpStart
         ' 
         dtpStart.Format = DateTimePickerFormat.Short
@@ -312,7 +245,7 @@ Partial Class frmPayroll
         ' dtpEnd
         ' 
         dtpEnd.Format = DateTimePickerFormat.Short
-        dtpEnd.Location = New Point(300, 297)
+        dtpEnd.Location = New Point(298, 297)
         dtpEnd.Name = "dtpEnd"
         dtpEnd.Size = New Size(230, 23)
         dtpEnd.TabIndex = 24
@@ -367,7 +300,7 @@ Partial Class frmPayroll
         btnNextRecord.ForeColor = SystemColors.ControlLight
         btnNextRecord.HighEmphasis = True
         btnNextRecord.Icon = Nothing
-        btnNextRecord.Location = New Point(296, 523)
+        btnNextRecord.Location = New Point(301, 523)
         btnNextRecord.Margin = New Padding(4, 6, 4, 6)
         btnNextRecord.MouseState = MaterialSkin.MouseState.HOVER
         btnNextRecord.Name = "btnNextRecord"
@@ -378,17 +311,6 @@ Partial Class frmPayroll
         btnNextRecord.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         btnNextRecord.UseAccentColor = False
         btnNextRecord.UseVisualStyleBackColor = True
-        ' 
-        ' lblSecondName
-        ' 
-        lblSecondName.BackColor = SystemColors.Control
-        lblSecondName.BorderStyle = BorderStyle.Fixed3D
-        lblSecondName.Location = New Point(301, 132)
-        lblSecondName.Margin = New Padding(3, 2, 3, 2)
-        lblSecondName.Name = "lblSecondName"
-        lblSecondName.Size = New Size(231, 23)
-        lblSecondName.TabIndex = 29
-        lblSecondName.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' MaterialLabel1
         ' 
@@ -402,17 +324,6 @@ Partial Class frmPayroll
         MaterialLabel1.Size = New Size(70, 17)
         MaterialLabel1.TabIndex = 28
         MaterialLabel1.Text = "Last Name"
-        ' 
-        ' lblPosition
-        ' 
-        lblPosition.BackColor = SystemColors.Control
-        lblPosition.BorderStyle = BorderStyle.Fixed3D
-        lblPosition.Location = New Point(300, 188)
-        lblPosition.Margin = New Padding(3, 2, 3, 2)
-        lblPosition.Name = "lblPosition"
-        lblPosition.Size = New Size(232, 23)
-        lblPosition.TabIndex = 31
-        lblPosition.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' MaterialLabel2
         ' 
@@ -564,12 +475,76 @@ Partial Class frmPayroll
         NetTotalLabel.TabIndex = 40
         NetTotalLabel.Text = "Final Total"
         ' 
+        ' lblFirstName
+        ' 
+        lblFirstName.Location = New Point(17, 132)
+        lblFirstName.Name = "lblFirstName"
+        lblFirstName.Size = New Size(221, 23)
+        lblFirstName.TabIndex = 42
+        ' 
+        ' lblSecondName
+        ' 
+        lblSecondName.Location = New Point(300, 132)
+        lblSecondName.Name = "lblSecondName"
+        lblSecondName.Size = New Size(226, 23)
+        lblSecondName.TabIndex = 43
+        ' 
+        ' lblDepartment
+        ' 
+        lblDepartment.Location = New Point(18, 189)
+        lblDepartment.Name = "lblDepartment"
+        lblDepartment.Size = New Size(218, 23)
+        lblDepartment.TabIndex = 44
+        ' 
+        ' lblPosition
+        ' 
+        lblPosition.Location = New Point(300, 189)
+        lblPosition.Name = "lblPosition"
+        lblPosition.Size = New Size(226, 23)
+        lblPosition.TabIndex = 45
+        ' 
+        ' lblRate
+        ' 
+        lblRate.Location = New Point(52, 236)
+        lblRate.Name = "lblRate"
+        lblRate.Size = New Size(184, 23)
+        lblRate.TabIndex = 46
+        ' 
+        ' lblAccNo
+        ' 
+        lblAccNo.Location = New Point(296, 464)
+        lblAccNo.Name = "lblAccNo"
+        lblAccNo.Size = New Size(230, 23)
+        lblAccNo.TabIndex = 47
+        ' 
+        ' lblBank
+        ' 
+        lblBank.Location = New Point(18, 464)
+        lblBank.Name = "lblBank"
+        lblBank.Size = New Size(218, 23)
+        lblBank.TabIndex = 48
+        ' 
+        ' IDLabelText
+        ' 
+        IDLabelText.Location = New Point(475, 77)
+        IDLabelText.Name = "IDLabelText"
+        IDLabelText.Size = New Size(51, 23)
+        IDLabelText.TabIndex = 49
+        ' 
         ' frmPayroll
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
         ClientSize = New Size(553, 681)
+        Controls.Add(IDLabelText)
+        Controls.Add(lblBank)
+        Controls.Add(lblAccNo)
+        Controls.Add(lblRate)
+        Controls.Add(lblPosition)
+        Controls.Add(lblDepartment)
+        Controls.Add(lblSecondName)
+        Controls.Add(lblFirstName)
         Controls.Add(lblNetTotal)
         Controls.Add(NetTotalLabel)
         Controls.Add(MaterialLabel3)
@@ -580,23 +555,15 @@ Partial Class frmPayroll
         Controls.Add(PayDateLabel)
         Controls.Add(txtSearchBox)
         Controls.Add(btnSearch)
-        Controls.Add(lblPosition)
         Controls.Add(MaterialLabel2)
-        Controls.Add(lblSecondName)
         Controls.Add(MaterialLabel1)
         Controls.Add(btnNextRecord)
         Controls.Add(btnPreviousRecord)
         Controls.Add(btnPlay)
         Controls.Add(dtpEnd)
         Controls.Add(dtpStart)
-        Controls.Add(lblAccNo)
-        Controls.Add(lblBank)
         Controls.Add(lblGross)
         Controls.Add(lblTax)
-        Controls.Add(lblRate)
-        Controls.Add(lblDepartment)
-        Controls.Add(lblFirstName)
-        Controls.Add(IDLabelText)
         Controls.Add(btnClear)
         Controls.Add(lblBankName)
         Controls.Add(lblAccountNumber)
@@ -625,22 +592,14 @@ Partial Class frmPayroll
     Friend WithEvents lblAccountNumber As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblBankName As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnClear As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents IDLabelText As Label
-    Friend WithEvents lblFirstName As Label
-    Friend WithEvents lblDepartment As Label
-    Friend WithEvents lblRate As Label
     Friend WithEvents lblTax As Label
     Friend WithEvents lblGross As Label
-    Friend WithEvents lblBank As Label
-    Friend WithEvents lblAccNo As Label
     Friend WithEvents dtpStart As DateTimePicker
     Friend WithEvents dtpEnd As DateTimePicker
     Friend WithEvents btnPlay As MaterialSkin.Controls.MaterialButton
     Friend WithEvents btnPreviousRecord As MaterialSkin.Controls.MaterialButton
     Friend WithEvents btnNextRecord As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents lblSecondName As Label
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblPosition As Label
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnSearch As MaterialSkin.Controls.MaterialButton
     Friend WithEvents txtSearchBox As TextBox
@@ -652,5 +611,13 @@ Partial Class frmPayroll
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblNetTotal As Label
     Friend WithEvents NetTotalLabel As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblFirstName As TextBox
+    Friend WithEvents lblSecondName As TextBox
+    Friend WithEvents lblDepartment As TextBox
+    Friend WithEvents lblPosition As TextBox
+    Friend WithEvents lblRate As TextBox
+    Friend WithEvents lblAccNo As TextBox
+    Friend WithEvents lblBank As TextBox
+    Friend WithEvents IDLabelText As TextBox
 
 End Class

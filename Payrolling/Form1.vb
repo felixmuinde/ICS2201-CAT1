@@ -61,7 +61,11 @@ Public Class frmPayroll
     End Sub
 
     Private Sub Clear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        IDLabelText.Text = ""
         txtSearchBox.Text = ""
+        lblBank.Text = ""
+        lblRate.Text = ""
+        lblAccNo.Text = ""
         ClearDates()
     End Sub
 
