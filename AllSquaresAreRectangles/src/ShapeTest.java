@@ -12,6 +12,7 @@ public class ShapeTest {
         shapes[1] = new Rectangle("Pink", 4.1, 2.1);
         
         for(Shape shape : shapes) {
+            out.println("Shape: " + shape.getClass().getSimpleName());
             out.println("Color: " + shape.getColor());
             out.println("Area: " + shape.calculateArea());
         }
