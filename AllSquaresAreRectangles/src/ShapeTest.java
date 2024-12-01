@@ -15,6 +15,7 @@ public class ShapeTest {
             out.println("Shape: " + shape.getClass().getSimpleName());
             out.println("Color: " + shape.getColor());
             out.println("Area: " + shape.calculateArea());
+            out.println();
         }
     }
 }
