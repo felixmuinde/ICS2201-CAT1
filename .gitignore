@@ -425,3 +425,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /AllSquaresAreRectangles/nbproject/private/
+/AllSquaresAreRectangles/build/
+/AllSquaresAreRectangles/dist/
