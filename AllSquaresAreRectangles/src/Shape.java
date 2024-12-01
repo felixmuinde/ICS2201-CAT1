@@ -2,7 +2,7 @@
  *
  * @author Felix Muinde
  */
-public class Shape {
+public abstract class Shape {
     private String color;
     
     public Shape(String color){
